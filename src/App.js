@@ -7,6 +7,7 @@ import About from './components/Home/About/About';
 import AboutUs from './components/AboutUs/AboutUs';
 import DashBoard from './components/DashBoard/DashBoard';
 import Login from './components/Login/Login';
+import Register from './components/Register/Register';
 
 
 function App() {
@@ -40,6 +41,10 @@ function App() {
 
            <Route path='/login'>
              <Login></Login>
+           </Route>
+
+           <Route path='/register'>
+             <Register></Register>
            </Route>
 
            <Route path='*'>
