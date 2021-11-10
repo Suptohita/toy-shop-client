@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../Hooks/useAuth';
 
 const Login = () => {
+    const [email, setEmail] = useState('')
+    const [password , setPassword] = useState('')
+    
+    const {login, signInUsingGoogle} = useAuth()
+
+    const userEmail = e => {
+        setEmail(e.target.value)
+    }
+
+    const userPassword = e => {
+        setPassword(e.target.value)
+    }
+
+    const handleLogin = e => {
+        login(email, password)
+    }
+
     return (  
         <div>
             <div className='container w-50 mt-5 pt-5'>
@@ -10,12 +28,12 @@ const Login = () => {
 
                     <div className="mb-3">
                         <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                        <input type="email" onChange={userEmail} className="form-control" />
                     </div>
 
                     <div className="mb-3">
                         <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                        <input type="password"  className="form-control" id="exampleInputPassword1" />
+                        <input type="password" onChange={userPassword} className="form-control" />
                     </div>
 
                     <h6 className='fw-normal pb-3 pt-2'>New Here? <Link to='/register'>Register Here</Link></h6>
@@ -29,12 +47,12 @@ const Login = () => {
                         error ? <h6 className='text-danger mb-3'>Login Failed</h6> : <h2></h2>
                     } */}
 
-                    <button type="button" className="btn mt-2" style={{backgroundColor:'#9bb8b7'}}>Submit</button>
+                    <button type="button" onClick={handleLogin} className="btn mt-2" style={{backgroundColor:'#9bb8b7'}}>Submit</button>
 
                     <span className='p-3'>Or</span>
 
                 
-                    <button type="button" className="btn btn-secondary mt-2">Google Sign In</button>
+                    <button type="button" onClick={signInUsingGoogle} className="btn btn-secondary mt-2">Google Sign In</button>
                 </form>
             </div>
         </div>

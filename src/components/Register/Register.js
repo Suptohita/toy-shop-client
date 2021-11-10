@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../Hooks/useAuth';
 
 
 const Register = () => {
+
+    const {signInUsingGoogle, register} = useAuth()
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -21,10 +24,8 @@ const Register = () => {
     }
 
     const handleRegister = () => {
-        console.log(name, email, password)
+        register(name, email, password)
     }
-
-    
 
 
     return (
@@ -34,12 +35,12 @@ const Register = () => {
                 <form>
                     <div className="mb-3">
                         <label htmlFor="exampleInputEmail1" className="form-label">Your Name</label>
-                        <input type="text" onChange={handleName} className="form-control" required aria-describedby="emailHelp" />
+                        <input type="text" onChange={handleName} className="form-control" required />
                     </div>
 
                     <div className="mb-3">
                         <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                        <input type="email" onChange={handleEmail} className="form-control" required aria-describedby="emailHelp" />
+                        <input type="email" onChange={handleEmail} className="form-control" required />
                     </div>
 
                     <div className="mb-3">
@@ -63,7 +64,7 @@ const Register = () => {
                     <button type="button" onClick={handleRegister} className="btn mt-2" style={{ backgroundColor: '#9bb8b7' }}>Submit</button>
                     <span className='p-3'>Or</span>
 
-                    <button type="button" className="btn btn-secondary mt-2">Google Sign In</button>
+                    <button type="button" onClick={signInUsingGoogle} className="btn btn-secondary mt-2">Google Sign In</button>
                 </form>
             </div>
         </div>
