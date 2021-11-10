@@ -1,0 +1,12 @@
+.banner::before {
+    max-height: 85vh;
+	content: "";
+	position: absolute;
+	top: 0;
+	background-color: #ccd9ee;
+	z-index: -1;
+	width: 50%;
+	height: 100%;
+	right: 0;
+	border-radius: 400px 0 0 400px;
+}

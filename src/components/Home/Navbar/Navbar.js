@@ -1,9 +1,9 @@
 import React from 'react';
 
+
 const Navbar = () => {
     return (
-        <div>
-            navbar
+        <div className='d-flex justify-content-evenly bg-none'>
         </div>
     );
 };
