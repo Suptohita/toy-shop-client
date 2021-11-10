@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from '../Home/Navbar/Navbar';
 import useAuth from '../Hooks/useAuth';
 
 const Login = () => {
@@ -22,6 +23,7 @@ const Login = () => {
 
     return (  
         <div>
+            <Navbar></Navbar>
             <div className='container w-50 mt-5 pt-5'>
                 <h1 className='fs-1 pb-5 text-center'><u>Login</u></h1>
                 <form>
