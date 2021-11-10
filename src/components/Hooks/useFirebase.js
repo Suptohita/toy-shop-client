@@ -2,22 +2,29 @@ import { getAuth,  signInWithPopup, GoogleAuthProvider,signInWithEmailAndPasswor
 import { useEffect, useState } from "react";
 import inititlizeAuthentication from "../Firebase/firebase.init";
 
+
 inititlizeAuthentication()
 
 const useFirebase = () => {
     const [user, setUser] = useState({})
     const [error, setError] = useState('')
 
+
     const auth = getAuth()
 
+    
+
     // Google sign in 
-    const signInUsingGoogle = () => {
+    const signInUsingGoogle = (history, redirect_uri) => {
         const googleProvider = new GoogleAuthProvider()
-        signInWithPopup(auth, googleProvider)
+        return signInWithPopup(auth, googleProvider)
         .then(result => setUser(result.user))
+        .then(result => {
+            history.push(redirect_uri)
+        })
         .catch(err => {
             setError(err)
-        })
+        }) 
     }
 
     
@@ -50,9 +57,12 @@ const useFirebase = () => {
 
 
     // user login 
-    const login = (email, password) => {
+    const login = (email, password, history, redirect_uri) => {
         signInWithEmailAndPassword(auth, email, password)
         .then(result => setUser(result.user))
+        .then(result => {
+            history.push(redirect_uri)
+        })
         .catch(err => {
             setError(err)
         })
@@ -76,7 +86,7 @@ const useFirebase = () => {
             }
         })
         return () => unsubscribed
-    }, [])
+    }, [auth])
 
 
     return{
@@ -84,6 +94,8 @@ const useFirebase = () => {
         register,
         login,
         user,
+        setError,
+        setUser,
         error,
         logOut
     }

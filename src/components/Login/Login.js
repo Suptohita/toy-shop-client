@@ -2,12 +2,18 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../Home/Navbar/Navbar';
 import useAuth from '../Hooks/useAuth';
+import { useHistory, useLocation } from 'react-router';
 
 const Login = () => {
     const [email, setEmail] = useState('')
     const [password , setPassword] = useState('')
     
     const {login, signInUsingGoogle} = useAuth()
+
+    const location = useLocation()
+    const history = useHistory()
+    const redirect_uri = location.state?.from || '/'
+    
 
     const userEmail = e => {
         setEmail(e.target.value)
@@ -18,7 +24,11 @@ const Login = () => {
     }
 
     const handleLogin = e => {
-        login(email, password)
+        login(email, password, history, redirect_uri)
+    }
+
+    const handleGoogleLogin = () => {
+        signInUsingGoogle(history, redirect_uri) 
     }
 
     return (  
@@ -54,7 +64,7 @@ const Login = () => {
                     <span className='p-3'>Or</span>
 
                 
-                    <button type="button" onClick={signInUsingGoogle} className="btn btn-secondary mt-2">Google Sign In</button>
+                    <button type="button" onClick={handleGoogleLogin} className="btn btn-secondary mt-2">Google Sign In</button>
                 </form>
             </div>
         </div>
