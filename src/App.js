@@ -4,11 +4,14 @@ import { BrowserRouter as Router, Switch,Route, Link } from 'react-router-dom';
 import AllProducts from './components/AllProducts/AllProducts';
 import Purchase from './components/Purchase/Purchase';
 import AboutUs from './components/AboutUs/AboutUs';
-import DashBoard from './components/DashBoard/DashBoard';
+import DashBoard from './components/DashBoard/DashBoard/DashBoard';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import AuthProvider from './components/Context/AuthProvider';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import MyOrders from './components/DashBoard/MyOrders/MyOrders';
+import GiveReview from './components/DashBoard/GiveReview/GiveReview';
+import Pay from './components/DashBoard/Pay/Pay';
 
 
 function App() {
@@ -42,6 +45,19 @@ function App() {
              <PrivateRoute path='/dashboard'>
                <DashBoard></DashBoard>
              </PrivateRoute>
+             
+             <PrivateRoute path='/dashboard/myOrders'>
+               <MyOrders></MyOrders>
+             </PrivateRoute>
+
+             <PrivateRoute path='/dashboard/review'>
+               <GiveReview></GiveReview>
+             </PrivateRoute>
+
+             <PrivateRoute path='/dashboard/pay'>
+               <Pay></Pay>
+             </PrivateRoute>
+
 
              <Route path='/login'>
                <Login></Login>

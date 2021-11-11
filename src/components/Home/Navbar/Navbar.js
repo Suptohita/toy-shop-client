@@ -17,9 +17,14 @@ const Navbar = () => {
                     <h4 className='ms-3 me-5 ' style={{ cursor: 'pointer' }}>Products</h4>
                 </Link>
 
-                <Link className='text-dark' to='/dashboard'>
-                    <h4 className='ms-3 me-5 ' style={{ cursor: 'pointer' }}>Dashboard</h4>
-                </Link>
+                {
+                    user?.email ?
+                        <Link className='text-dark' to='/dashboard'>
+                            <h4 className='ms-3 me-5 ' style={{ cursor: 'pointer' }}>Dashboard</h4>
+                        </Link>
+                        :
+                        ''
+                }
 
                 <Link className="text-dark" to='/about'>
                     <h4 className='ms-3 me-5 ' style={{ cursor: 'pointer' }}>About Us</h4>
