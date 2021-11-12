@@ -21,13 +21,25 @@ const GiveReview = () => {
     const handleComment = e =>{
         setComment(e.target.value)
     }
+const handleReview = e => {
+        const reviewerName = user.displayName
 
-    const handleReview = () => {
-        const reviewedOrder = user.displayName
+        const data = {reviewerName, topicName, rating, comment}
+        
 
-        const data = {reviewedOrder, topicName, rating, comment}
-
-        console.log(data)
+        fetch('http://localhost:8000/review/submit', {
+             method: "POST",
+             headers: {
+                 "content-type": "application/json"
+             },
+             body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if(data.insertedId) {
+                    alert('Review Added')
+                }
+            })
     }
 
 
