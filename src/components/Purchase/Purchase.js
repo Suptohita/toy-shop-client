@@ -11,6 +11,7 @@ const Purchase = () => {
     const [phoneNumber, setPhoneNumber] = useState('')
     const [quantity, setQuantity] = useState('')
 
+
     useEffect(() => {
         fetch(`http://localhost:8000/purchase/${purchaseId}`)
             .then(result => result.json())

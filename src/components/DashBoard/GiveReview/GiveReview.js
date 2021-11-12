@@ -5,6 +5,7 @@ const GiveReview = () => {
     return (
         <div>
             <DashBoard></DashBoard>
+            user review
         </div>
     );
 };

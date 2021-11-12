@@ -5,6 +5,7 @@ const Pay = () => {
     return (
         <div>
             <DashBoard></DashBoard>
+            <h4 className='mt-4'>Coming Soon...</h4>
         </div>
     );
 };

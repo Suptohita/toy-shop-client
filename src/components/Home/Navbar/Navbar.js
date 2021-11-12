@@ -19,7 +19,7 @@ const Navbar = () => {
 
                 {
                     user?.email ?
-                        <Link className='text-dark' to='/dashboard'>
+                        <Link className='text-dark' to='/myorders'>
                             <h4 className='ms-3 me-5 ' style={{ cursor: 'pointer' }}>Dashboard</h4>
                         </Link>
                         :

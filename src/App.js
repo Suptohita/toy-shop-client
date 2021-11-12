@@ -45,16 +45,16 @@ function App() {
              <PrivateRoute path='/dashboard'>
                <DashBoard></DashBoard>
              </PrivateRoute>
-             
-             <PrivateRoute path='/dashboard/myOrders'>
+
+             <PrivateRoute path='/myOrders'>
                <MyOrders></MyOrders>
              </PrivateRoute>
 
-             <PrivateRoute path='/dashboard/review'>
+             <PrivateRoute path='/review'>
                <GiveReview></GiveReview>
              </PrivateRoute>
 
-             <PrivateRoute path='/dashboard/pay'>
+             <PrivateRoute path='/pay'>
                <Pay></Pay>
              </PrivateRoute>
 
