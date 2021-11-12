@@ -15,7 +15,7 @@ const MyOrders = () => {
 
 
     const handleOrderDelete = (id) => {
-        const confirm = window.confirm('are you susre')
+        const confirm = window.confirm('Are you sure, You want to cancle order?')
         if (confirm) {
             fetch(`http://localhost:8000/myorders/deleteorder/${id}`, {
                 method: "DELETE",

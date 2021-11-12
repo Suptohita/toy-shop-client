@@ -1,0 +1,49 @@
+.feedback-input {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight:500;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 22px;
+  background-color: transparent;
+  border:2px solid rgb(185, 185, 250);
+  transition: all 0.3s;
+  padding: 13px;
+  box-sizing: border-box;
+  outline:0;
+}
+
+.rating{
+    width: 180px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight:500;
+    font-size: 18px;
+    border-radius: 5px;
+    line-height: 22px;
+    background-color: transparent;
+    border:2px solid rgb(185, 185, 250);
+    transition: all 0.3s;
+    padding: 13px;
+    box-sizing: border-box;
+    outline:0;
+    margin-left: 10px;
+}
+
+.feedback-input:focus {
+    border:2px solid #4f58da;
+    transition: all 0.5s;
+}
+
+textarea {
+  height: 150px;
+  width: 350px;
+}
+
+#review-submit:hover{
+    background-color: #868df1;
+    border:2px solid #4f58da;
+    color: whitesmoke;
+}
+
+#review-submit{
+    border: 2px solid rgb(185, 185, 250);
+}

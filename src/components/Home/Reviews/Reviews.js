@@ -1,5 +1,5 @@
 import React from 'react';
-import DashBoard from '../../DashBoard/DashBoard/DashBoard';
+
 
 const Reviews = () => {
     return (
