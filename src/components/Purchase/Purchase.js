@@ -31,12 +31,11 @@ const Purchase = () => {
         setQuantity(e.target.value)
     }
 
-    const handlePlaceOrder = () => {
+    const handlePlaceOrder = (e) => {
         const userName = user.displayName
         const userEmail = user.email
 
         const {name, image, price, description} = specificProduct
-        console.log(specificProduct)
 
         const data = {userName, userEmail, adress, phoneNumber, name, image, price, description, quantity }
 
@@ -48,9 +47,12 @@ const Purchase = () => {
             body: JSON.stringify(data)
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+            if(data.insertedId){
+                alert("Order Added.")
+            }
+        })
     }
-
 
 
     return (
@@ -83,7 +85,7 @@ const Purchase = () => {
                                 <h6 className='text-start'>Email:</h6>
                                 <input type="email" readOnly value={user.email} className='form-control mb-4' />
 
-                                <h6 className='text-start'>Adress:</h6>
+                                <h6 id='hello' className='text-start'>Adress:</h6>
                                 <input onChange={handleAdress} type="text" className='form-control mb-4' />
 
                                 <h6 className='text-start'>Phone Number:</h6>
