@@ -4,7 +4,7 @@ import DashBoard from '../DashBoard/DashBoard';
 
 const MyOrders = () => {
     const [myOrders, setMyOrders] = useState([])
-    const {user} = useAuth()
+    const { user } = useAuth()
 
 
     useEffect(() => {
@@ -14,17 +14,31 @@ const MyOrders = () => {
     }, [])
 
 
-    const handleOrderDelete = () =>{
-        console.log('deleted')
+    const handleOrderDelete = (id) => {
+        const confirm = window.confirm('are you susre')
+        if (confirm) {
+            fetch(`http://localhost:8000/myorders/deleteorder/${id}`, {
+                method: "DELETE",
+                headers: { "Content-type": "application/json" }
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        alert('Order Cancled')
+                        const remainOrder = myOrders.filter(myorder => myorder._id !== id)
+                        setMyOrders(remainOrder)
+                    }
+                })
+        }
     }
-    
-    
+
+
 
     return (
         <div>
             <DashBoard></DashBoard>
             <h2 className='mt-4 mb-5'>My orders</h2>
-            <div className="container" style={{overflowX:'scroll', overflowY:'hidden'}}>
+            <div className="container" style={{ overflowX: 'scroll', overflowY: 'hidden' }}>
 
                 <table className="table table-hover table-secondary text-start">
                     <thead className=''>
@@ -39,13 +53,13 @@ const MyOrders = () => {
                     <tbody>
                         {
                             myOrders.map((myorder, i) => <tr key={i}>
-                                <th scope="row">{i+1}</th>
-                                <td><img style={{width:'50px',height:'50px', borderRadius:'50%'}} src={myorder.image} alt="" /></td>
+                                <th scope="row">{i + 1}</th>
+                                <td><img style={{ width: '50px', height: '50px', borderRadius: '50%' }} src={myorder.image} alt="" /></td>
                                 <td>{myorder.name} {
-                                    myorder.quantity>1? <span className='bg-warning rounded-circle ps-2 pe-2 pt-1 pb-1'>{myorder.quantity}</span>:''
+                                    myorder.quantity > 1 ? <span className='bg-warning rounded-circle ps-2 pe-2 pt-1 pb-1'>{myorder.quantity}</span> : ''
                                 }</td>
                                 <td>{myorder.userEmail}</td>
-                                <td><button onClick={handleOrderDelete} className='btn btn-danger btn-sm'>Delete</button></td>
+                                <td><button onClick={() => handleOrderDelete(myorder._id)} className='btn btn-danger btn-sm'>Delete</button></td>
                             </tr>)
                         }
                     </tbody>
