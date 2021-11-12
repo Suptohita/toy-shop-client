@@ -35,7 +35,7 @@ const Reviews = () => {
                                      review.rating > 3 && review.rating <= 3.5 ?<div className='text-danger fs-3'>★★★⯪☆</div>:
                                      review.rating > 3.5 && review.rating <= 4 ?<div className='text-danger fs-3'>★★★★☆</div>:
                                      review.rating > 4 && review.rating <= 4.5 ?<div className='text-danger fs-3'>★★★⯪☆</div>:
-                                     <div className='text-dangerdanger fs-3'>★★★★★</div>
+                                     <div className='text-danger fs-3'>★★★★★</div>
                                 }
                                 <p class="card-text">{review.comment}</p>
                             </div>
