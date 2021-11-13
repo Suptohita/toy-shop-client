@@ -12,6 +12,10 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import MyOrders from './components/DashBoard/MyOrders/MyOrders';
 import GiveReview from './components/DashBoard/GiveReview/GiveReview';
 import Pay from './components/DashBoard/Pay/Pay';
+import ManageAllProducts from './components/ManageAllProducts/ManageAllProducts';
+import ManageOrders from './components/ManageOrders/ManageOrders';
+import MakeAdmin from './components/MakeAdmin/MakeAdmin';
+import AddProduct from './components/AddProduct/AddProduct';
 
 
 function App() {
@@ -34,13 +38,25 @@ function App() {
                <AllProducts></AllProducts>
              </Route>
 
+             <Route path='/about'>
+               <AboutUs></AboutUs>
+             </Route>
+
+             <Route path='/login'>
+               <Login></Login>
+             </Route>
+
+             <Route path='/register'>
+               <Register></Register>
+             </Route>
+
              <PrivateRoute path='/purchase/:purchaseId'>
                <Purchase></Purchase>
              </PrivateRoute>
 
-             <Route path='/about'>
-               <AboutUs></AboutUs>
-             </Route>
+             <PrivateRoute path='/pay'>
+               <Pay></Pay>
+             </PrivateRoute>
 
              <PrivateRoute path='/dashboard'>
                <DashBoard></DashBoard>
@@ -54,18 +70,27 @@ function App() {
                <GiveReview></GiveReview>
              </PrivateRoute>
 
-             <PrivateRoute path='/pay'>
-               <Pay></Pay>
-             </PrivateRoute>
-
-
-             <Route path='/login'>
-               <Login></Login>
+             <Route path='/manageallproducts'>
+               <ManageAllProducts></ManageAllProducts>
              </Route>
 
-             <Route path='/register'>
-               <Register></Register>
+             <Route path='/manageorders'>
+               <ManageOrders></ManageOrders>
              </Route>
+
+             <Route path='/addproduct'>
+               <AddProduct></AddProduct>
+             </Route>
+
+             <Route path='/makeadmin'>
+               <MakeAdmin></MakeAdmin>
+             </Route>
+
+
+             <Route path='/'>
+
+             </Route>
+
 
              <Route path='*'>
                <h1 className='text-danger m-5'>Page Not Found !!!</h1>

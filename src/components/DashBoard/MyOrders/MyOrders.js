@@ -13,7 +13,6 @@ const MyOrders = () => {
             .then(data => setMyOrders(data.filter(order => order.userName === user.displayName)))
     }, [])
 
-
     const handleOrderDelete = (id) => {
         const confirm = window.confirm('Are you sure, You want to cancle order?')
         if (confirm) {

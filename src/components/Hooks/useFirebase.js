@@ -8,6 +8,7 @@ inititlizeAuthentication()
 const useFirebase = () => {
     const [user, setUser] = useState({})
     const [error, setError] = useState('')
+    const [admin, setAdmin] = useState(false)
 
 
     const auth = getAuth()
@@ -88,6 +89,11 @@ const useFirebase = () => {
         return () => unsubscribed
     }, [auth])
 
+    useEffect(() =>{
+        fetch(`http://localhost:8000/getuser/${user.email}`)
+        .then(res => res.json())
+        .then(data => setAdmin(data.admin))
+    }, [user.email])
 
     return{
         signInUsingGoogle,
@@ -97,7 +103,8 @@ const useFirebase = () => {
         setError,
         setUser,
         error,
-        logOut
+        logOut,
+        admin
     }
 }
 

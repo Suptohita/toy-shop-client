@@ -5,7 +5,7 @@ import useAuth from '../Hooks/useAuth';
 
 const Register = () => {
 
-    const {signInUsingGoogle, register} = useAuth()
+    const { signInUsingGoogle, register } = useAuth()
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -25,6 +25,18 @@ const Register = () => {
 
     const handleRegister = () => {
         register(name, email, password)
+
+        if (email && password) {
+            const data = { name, email, password, userStatus: 'general' }
+            fetch('http://localhost:8000/addUser', {
+                method: 'POST',
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+                .then(res => res.json())
+        }
     }
 
 
