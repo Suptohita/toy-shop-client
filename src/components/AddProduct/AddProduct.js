@@ -1,9 +1,10 @@
 import React from 'react';
+import Navbar from '../Home/Navbar/Navbar';
 
 const AddProduct = () => {
     return (
         <div>
-            add product
+            <Navbar></Navbar>
         </div>
     );
 };
