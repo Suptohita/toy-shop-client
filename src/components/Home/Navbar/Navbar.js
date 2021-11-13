@@ -18,7 +18,7 @@ const Navbar = () => {
                             </Link>
 
                             <Link className="text-dark" to='/manageallProducts'>
-                                <h5 className='ms-3 me-5 ' style={{ cursor: 'pointer' }}>All Products</h5>
+                                <h5 className='ms-3 me-5 ' style={{ cursor: 'pointer' }}>Manage All Products</h5>
                             </Link>
 
 
