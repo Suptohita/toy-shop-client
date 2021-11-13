@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useState } from 'react/cjs/react.development';
 import Footer from '../Home/Footer/Footer';
 import Navbar from '../Home/Navbar/Navbar';
@@ -9,7 +8,7 @@ const ManageAllProducts = () => {
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:8000/allproducts')
+        fetch('https://suptohita-toy-shop-server.herokuapp.com/allproducts')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
@@ -18,7 +17,7 @@ const ManageAllProducts = () => {
         const proceed = window.confirm('You want to delete it?')
 
         if (proceed) {
-            fetch(`http://localhost:8000/product/delete/${id}`, {
+            fetch(`https://suptohita-toy-shop-server.herokuapp.com/product/delete/${id}`, {
                 method: "DELETE",
                 headers: { "Content-type": "apllication/json" }
             })

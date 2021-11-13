@@ -13,7 +13,7 @@ const Purchase = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:8000/purchase/${purchaseId}`)
+        fetch(`https://suptohita-toy-shop-server.herokuapp.com/purchase/${purchaseId}`)
             .then(result => result.json())
             .then(data => setSpecificProduct(data))
     }, [purchaseId])
@@ -35,12 +35,13 @@ const Purchase = () => {
     const handlePlaceOrder = (e) => {
         const userName = user.displayName
         const userEmail = user.email
+        const orderStatus = 'Pending'
 
         const {name, image, price, description} = specificProduct
 
-        const data = {userName, userEmail, adress, phoneNumber, name, image, price, description, quantity }
+        const data = {userName, userEmail, adress, phoneNumber, name, image, price, description, quantity, status:orderStatus }
 
-        fetch('http://localhost:8000/purchase',{
+        fetch('https://suptohita-toy-shop-server.herokuapp.com/purchase',{
             method: 'POST',
             headers: {
                 "content-type":"application/json"

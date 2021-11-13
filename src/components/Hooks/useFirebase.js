@@ -90,7 +90,7 @@ const useFirebase = () => {
     }, [auth])
 
     useEffect(() =>{
-        fetch(`http://localhost:8000/getuser/${user.email}`)
+        fetch(`https://suptohita-toy-shop-server.herokuapp.com/getuser/${user.email}`)
         .then(res => res.json())
         .then(data => setAdmin(data.admin))
     }, [user.email])

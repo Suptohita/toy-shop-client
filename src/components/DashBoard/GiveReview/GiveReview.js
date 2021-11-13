@@ -27,7 +27,7 @@ const handleReview = e => {
         const data = {reviewerName, topicName, rating, comment}
         
 
-        fetch('http://localhost:8000/review/submit', {
+        fetch('https://suptohita-toy-shop-server.herokuapp.com/review/submit', {
              method: "POST",
              headers: {
                  "content-type": "application/json"

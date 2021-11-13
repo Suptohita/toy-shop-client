@@ -26,7 +26,7 @@ const MakeAdmin = () => {
         register(name, email, password)
 
         const user = {email}
-        fetch('http://localhost:8000/makeadmin/submit',{
+        fetch('https://suptohita-toy-shop-server.herokuapp.com/makeadmin/submit',{
             method:"PUT",
             headers:{
                 'content-type':'application/json'
@@ -44,7 +44,7 @@ const MakeAdmin = () => {
 
     const handleMakeAdmin = () => {
         const user = {email}
-        fetch('http://localhost:8000/makeadmin/submit',{
+        fetch('https://suptohita-toy-shop-server.herokuapp.com/makeadmin/submit',{
             method:"PUT",
             headers:{
                 'content-type':'application/json'

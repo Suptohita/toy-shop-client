@@ -8,15 +8,15 @@ const MyOrders = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:8000/myorders')
+        fetch('https://suptohita-toy-shop-server.herokuapp.com/myorders')
             .then(res => res.json())
             .then(data => setMyOrders(data.filter(order => order.userName === user.displayName)))
-    }, [])
+    }, [user.displayName])
 
     const handleOrderDelete = (id) => {
         const confirm = window.confirm('Are you sure, You want to cancle order?')
         if (confirm) {
-            fetch(`http://localhost:8000/myorders/deleteorder/${id}`, {
+            fetch(`https://suptohita-toy-shop-server.herokuapp.com/myorders/deleteorder/${id}`, {
                 method: "DELETE",
                 headers: { "Content-type": "application/json" }
             })

@@ -28,7 +28,7 @@ const Register = () => {
 
         if (email && password) {
             const data = { name, email, password, userStatus: 'general' }
-            fetch('http://localhost:8000/addUser', {
+            fetch('https://suptohita-toy-shop-server.herokuapp.com/addUser', {
                 method: 'POST',
                 headers: {
                     "content-type": "application/json"

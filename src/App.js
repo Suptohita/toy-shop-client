@@ -16,6 +16,7 @@ import ManageAllProducts from './components/ManageAllProducts/ManageAllProducts'
 import ManageOrders from './components/ManageOrders/ManageOrders';
 import MakeAdmin from './components/MakeAdmin/MakeAdmin';
 import AddProduct from './components/AddProduct/AddProduct';
+import AdminRoute from './components/AdminRoute/AdminRoute';
 
 
 function App() {
@@ -70,22 +71,23 @@ function App() {
                <GiveReview></GiveReview>
              </PrivateRoute>
 
-             <Route path='/manageallproducts'>
+             <AdminRoute path='/manageallproducts'>
                <ManageAllProducts></ManageAllProducts>
-             </Route>
+             </AdminRoute>
 
-             <Route path='/manageorders'>
+             <AdminRoute path='/manageorders'>
                <ManageOrders></ManageOrders>
-             </Route>
+             </AdminRoute>
 
-             <Route path='/addproduct'>
+             <AdminRoute path='/addproduct'>
                <AddProduct></AddProduct>
-             </Route>
+             </AdminRoute>
 
-             <Route path='/makeadmin'>
+             <AdminRoute path='/makeadmin'>
                <MakeAdmin></MakeAdmin>
-             </Route>
+             </AdminRoute>
 
+             
 
              <Route path='/'>
 
