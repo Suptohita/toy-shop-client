@@ -46,6 +46,7 @@ const MyOrders = () => {
                             <th scope="col">Image</th>
                             <th scope="col">Product</th>
                             <th scope="col">Email</th>
+                            <th scope="col">Status</th>
                             <th scope="col">Delete Order</th>
                         </tr>
                     </thead>
@@ -58,6 +59,7 @@ const MyOrders = () => {
                                     myorder.quantity > 1 ? <span className='bg-warning rounded-circle ps-2 pe-2 pt-1 pb-1'>{myorder.quantity}</span> : ''
                                 }</td>
                                 <td>{myorder.userEmail}</td>
+                                <td>{myorder.status}</td>
                                 <td><button onClick={() => handleOrderDelete(myorder._id)} className='btn btn-danger btn-sm'>Delete</button></td>
                             </tr>)
                         }

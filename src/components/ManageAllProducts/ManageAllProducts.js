@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react/cjs/react.development';
+import React, { useEffect, useState } from 'react';
 import Footer from '../Home/Footer/Footer';
 import Navbar from '../Home/Navbar/Navbar';
 

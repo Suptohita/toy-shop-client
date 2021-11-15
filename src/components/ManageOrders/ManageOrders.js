@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import Navbar from '../Home/Navbar/Navbar';
 
 
 const ManageOrders = () => {
     const [myOrders, setMyOrders] = useState([])
     
-
+    const history = useHistory()
 
 
     useEffect(() => {
@@ -14,8 +15,9 @@ const ManageOrders = () => {
             .then(data => setMyOrders(data))
     }, [])
 
+
 const handleUpdateStatus = (id) =>{
-    console.log(id)
+
     fetch(`https://suptohita-toy-shop-server.herokuapp.com/updateorderstatus/${id}`,{
         method:"PUT",
         headers:{
@@ -24,7 +26,6 @@ const handleUpdateStatus = (id) =>{
         body: JSON.stringify()
     })
     .then(res => res.json())
-    .then(data => console.log(data))
 }
 
 
@@ -32,7 +33,7 @@ const handleUpdateStatus = (id) =>{
         <div>
             <Navbar></Navbar>
             <div className="container" style={{ overflowX: 'scroll', overflowY: 'hidden' }}>
-
+                <h6 className='text-warning mb-3'><u>Note: Status Will Change After Reload Page</u></h6>
                 <table className="table table-hover table-secondary text-start">
                     <thead className=''>
                         <tr>

@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from '../Home/Navbar/Navbar';
 import useAuth from '../Hooks/useAuth';
+import { useHistory} from 'react-router';
 
 
 const Register = () => {
 
-    const { signInUsingGoogle, register } = useAuth()
+    const { signInUsingGoogle, register, error } = useAuth()
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    const history = useHistory()
+    const redirect_uri =  '/'
 
     const handleName = e => {
         setName(e.target.value)
@@ -23,8 +28,12 @@ const Register = () => {
         setPassword(e.target.value)
     }
 
+    const handleGoogleLogin = () => {
+        signInUsingGoogle(history, redirect_uri) 
+    }
+
     const handleRegister = () => {
-        register(name, email, password)
+        register(name, email, password, history, redirect_uri)
 
         if (email && password) {
             const data = { name, email, password, userStatus: 'general' }
@@ -42,6 +51,7 @@ const Register = () => {
 
     return (
         <div>
+            <Navbar></Navbar>
             <div className='container w-50 mt-5 pt-5'>
                 <h1 className='fs-1 pb-5 text-center'><u>Register</u></h1>
                 <form>
@@ -76,7 +86,7 @@ const Register = () => {
                     <button type="button" onClick={handleRegister} className="btn mt-2" style={{ backgroundColor: '#9bb8b7' }}>Submit</button>
                     <span className='p-3'>Or</span>
 
-                    <button type="button" onClick={signInUsingGoogle} className="btn btn-secondary mt-2">Google Sign In</button>
+                    <button type="button" onClick={handleGoogleLogin} className="btn btn-secondary mt-2">Google Sign In</button>
                 </form>
             </div>
         </div>

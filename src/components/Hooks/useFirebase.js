@@ -9,6 +9,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({})
     const [error, setError] = useState('')
     const [admin, setAdmin] = useState(false)
+    const [isLoding, setIsLoding] = useState(true)
 
 
     const auth = getAuth()
@@ -17,6 +18,7 @@ const useFirebase = () => {
 
     // Google sign in 
     const signInUsingGoogle = (history, redirect_uri) => {
+        setIsLoding(true)
         const googleProvider = new GoogleAuthProvider()
         return signInWithPopup(auth, googleProvider)
         .then(result => setUser(result.user))
@@ -26,20 +28,27 @@ const useFirebase = () => {
         .catch(err => {
             setError(err)
         }) 
+        .finally(() => setIsLoding(false))
     }
 
     
 
     // user registration 
-    const register = (name, email, password) => {
+    const register = (name, email, password, history, redirect_uri) => {
+        setIsLoding(true)
         createUserWithEmailAndPassword(auth, email, password)
         .then(result => {
             setUser(result.user)
             updateName(name)
         })
+        .then(result => {
+            history.push(redirect_uri)
+            window.location.reload()
+        })
         .catch(err => {
             setError(err)
         })
+        .finally(() => setIsLoding(false))
     }
 
     // for collect user name 
@@ -56,9 +65,8 @@ const useFirebase = () => {
         })
     }
 
-
-    // user login 
     const login = (email, password, history, redirect_uri) => {
+        setIsLoding(true)
         signInWithEmailAndPassword(auth, email, password)
         .then(result => setUser(result.user))
         .then(result => {
@@ -71,9 +79,11 @@ const useFirebase = () => {
 
     // user logOut 
     const logOut = () => {
+        setIsLoding(true)
         signOut(auth)
         .then(() => '')
         .catch(err => err)
+        .finally(() => setIsLoding(false))
     }
 
     // Auth Change 
@@ -85,6 +95,7 @@ const useFirebase = () => {
             else{
                 setUser({})
             }
+            setIsLoding(false)
         })
         return () => unsubscribed
     }, [auth])
@@ -104,7 +115,8 @@ const useFirebase = () => {
         setUser,
         error,
         logOut,
-        admin
+        admin,
+        isLoding
     }
 }
 

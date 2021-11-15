@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react/cjs/react.development';
+import { useState } from 'react';
 import Navbar from '../Home/Navbar/Navbar';
 import useAuth from '../Hooks/useAuth';
 

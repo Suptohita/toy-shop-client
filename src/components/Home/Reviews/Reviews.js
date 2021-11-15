@@ -15,7 +15,7 @@ const Reviews = () => {
     return (
         <div>
             <h3 className='mb-4 mt-3'><u>User's Reviews</u></h3>
-            <div className='d-flex container mb-5 user-review'>
+            <div className='d-flex container justify-content-center mb-5 user-review'>
                 {
                     reviews.map((review,i) => <div key={i}>
                         <div className="card text-dangerdark mb-2 ms-3 review-bg" style={{width:'18rem', height:'200px'}}>

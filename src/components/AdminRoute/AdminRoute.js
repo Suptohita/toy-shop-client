@@ -8,11 +8,15 @@ const AdminRoute = ({ children, ...rest }) => {
 
 
     return (
-        <Route {...rest} render={({ location }) => user.email && admin
-            ?
-            children :
-            <Redirect to={{ pathname: '/', state: { from: location } }}>
-            </Redirect>} />
+        <div>
+            <Route {...rest} render={({ location }) => user.email && admin
+                ?
+                children
+                :
+                <Redirect
+                to={{ pathname: '', state: { from: location } }}>
+                </Redirect>} />
+        </div>
     );
 
 }
