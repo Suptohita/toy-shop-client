@@ -3,6 +3,8 @@
 * Live Site Link:- [https://niche-product.web.app/](https://niche-product.web.app/)
 * Another Live Site Link:- [https://suptohita-toy-shop.netlify.app/](https://suptohita-toy-shop.netlify.app/)
 
+*server
+
 * For install all neccessary package:- `npm i` or `yarn add`
 * For run:- `npm start` or `yarn start`
 * After changes run `npm run build`
