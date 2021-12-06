@@ -13,7 +13,7 @@
 
 
 <h3>Features</h3>
-<hr>
+
 * It is a Mern-Stack E-Commerce website. It has an amazing Admin Panel and it is a responsive website. It is fully dynamic site.
 * Users can sign up and log in using google or the register method. 
 * Users can place an order, cancel an order and track order status. Users can review from the user’s dashboard menu.
