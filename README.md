@@ -11,11 +11,10 @@
 
 *For install yarn globally `npm install -g yarn`
 
-* This is a toy-shop site.
-* You can order toy from this site.
-* And it has a amazing admin panel.
-* It's a fully responsive try out on small divice 😊
-  
 
-    ⚫ Used Technology: `react`, `react-router`, `firebase`, `bootstrap`, `css`, `heroku`, `mongodb`
-
+<h3>Features</h3>
+<hr>
+* It is a Mern-Stack E-Commerce website. It has an amazing Admin Panel and it is a responsive website. It is fully dynamic site.
+* Users can sign up and log in using google or the register method. 
+* Users can place an order, cancel an order and track order status. Users can review from the user’s dashboard menu.
+* In the Admin panel, Admin can add a product, delete a product and manage user’s ordered product, and admin can make a new admin. Admin can update user order status pending to shipped.
